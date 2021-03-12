@@ -266,12 +266,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>UI Elements</span>
+                        <span>Category manager</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="glyphicon.html">glyphicon</a></li>
-                        <li><a href="grids.html">Grids</a></li>
+                        <li><a href="{{URL::to('/category')}}">List category</a></li>
+                        <li><a href="{{URL::to('/category/create')}}">Add category</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Brand manager</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/brand')}}">List brand</a></li>
+                        <li><a href="{{URL::to('/brand/create')}}">Add brand</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Product manager</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/product')}}">List product</a></li>
+                        <li><a href="{{URL::to('/product/create')}}">Add product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -299,16 +318,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="form_component.html">Form Elements</a></li>
                         <li><a href="form_validation.html">Form Validation</a></li>
                         <li><a href="dropzone.html">Dropzone</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-envelope"></i>
-                        <span>Mail </span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="mail.html">Inbox</a></li>
-                        <li><a href="mail_compose.html">Compose Mail</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

@@ -47,7 +47,7 @@ class AdminController extends Controller
         if (Auth::check()) {
             return view('admin.dashboard');
         }else{
-            return redirect::to('/admin_login');
+            return redirect::to('/admin_login')->send();
         }
     }
     public function logout(){

@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use App\category;
+use App\Category;
+use App\Brand;
+use App\Product;
+
 use Session;
 
 class CategoryController extends Controller
@@ -122,5 +125,12 @@ class CategoryController extends Controller
         session::put('message','Xoá loại sản phẩm thành công');
         return redirect('/category');
         //
+    }
+    public function getProductByCategory($id){
+        $category=Category::select()->get();
+        $brand=Brand::select()->get();
+        $category_name=Category::find($id);
+        $product_category=Product::join('categories','products.categoryID','=','categories.categoryID')->where('categories.categoryID',$id)->get() ;
+        return view('pages.category.product_category')->with('category',$category)->with('brand',$brand)->with('product',$product_category)->with('category_name',$category_name);
     }
 }

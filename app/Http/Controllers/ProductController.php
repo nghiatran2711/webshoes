@@ -154,4 +154,9 @@ class ProductController extends Controller
         session::put('message','Xoá sản phẩm thành công');
         return Redirect::to('product');
     }
+    public function productDetails($id){
+        $product_details=Product::find($id);
+        return view('pages.product.product_details')->with('product_details',$product_details);
+
+    }
 }

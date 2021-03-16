@@ -18,6 +18,13 @@ Route::get('/admin', function () {
 Route::get('/admin_login', function () {
     return view('admin_login');
 });
+
+//Home
+Route::get('/trang-chu','HomeController@index');
+Route::get('/product-by-category/{category}','CategoryController@getProductByCategory');
+Route::get('/product-by-brand/{brand}','BrandController@getProductByBrand');
+//Product-details
+Route::get('/product-details/{product}','ProductController@productDetails');
 //backend
 Route::post('/login','AdminController@login');
 Route::get('/dashboard','AdminController@show_dashboard');

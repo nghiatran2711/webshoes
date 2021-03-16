@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Brand;
+use App\Category;
+use App\Product;
 use Session;
 
 class BrandController extends Controller
@@ -122,5 +124,12 @@ class BrandController extends Controller
         Brand::where('brandID',$id)->delete();
         session::put('message','Xoá hiệu sản phẩm thành công');
         return redirect('/brand');
+    }
+    public function getProductByBrand($id){
+        $category=Category::select()->get();
+        $brand=Brand::select()->get();
+        $brand_name=Brand::find($id);
+        $product_brand=Product::join('brands','products.brandID','=','brands.brandID')->where('brands.brandID',$id)->get() ;
+        return view('pages.brand.product_brand')->with('category',$category)->with('brand',$brand)->with('product',$product_brand)->with('brand_name',$brand_name);
     }
 }

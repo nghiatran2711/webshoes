@@ -29,7 +29,7 @@ class ProductController extends Controller
     {
         //
         $this->check_login();
-        $list_product=Product::paginate(2);
+        $list_product=Product::paginate(5);
         return view('admin.product.list_product')->with('list_product',$list_product);
     }
 

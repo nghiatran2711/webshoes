@@ -20,6 +20,7 @@ Route::get('/admin_login', function () {
 });
 
 //Home
+Route::get('/','HomeController@index');
 Route::get('/trang-chu','HomeController@index');
 Route::get('/product-by-category/{category}','CategoryController@getProductByCategory');
 Route::get('/product-by-brand/{brand}','BrandController@getProductByBrand');
@@ -53,6 +54,13 @@ Route::post('/product','ProductController@store');
 Route::get('/product/{product}/edit','ProductController@edit');
 Route::post('/product/{product}','ProductController@update');
 Route::get('/product/{product}','ProductController@destroy');
+
+//cart
+Route::post('/add-cart','CartController@add');
+Route::get('/view-cart','CartController@view');
+Route::post('/update-cart','CartController@update');
+Route::get('/destroy-cart','CartController@remove');
+Route::get('/delete-cart/{productID}','CartController@delete');
 
 
 

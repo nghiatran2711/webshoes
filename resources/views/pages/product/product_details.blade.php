@@ -17,7 +17,7 @@
 							<span>
 								<span>{{number_format($product_details->price)}} VNĐ</span><br>
 								<label>Quantity:</label>
-								<form action="" method="post">
+								<form action="{{URL::to('/add-cart')}}" method="post">
 									{{@csrf_field()}}
 									<input type="hidden" name="productID" value="{{$product_details->productID}}">
 									<input type="text" name="quantity" value="1"  />

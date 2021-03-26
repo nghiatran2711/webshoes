@@ -27,7 +27,7 @@ Route::get('/product-by-brand/{brand}','BrandController@getProductByBrand');
 //Product-details
 Route::get('/product-details/{product}','ProductController@productDetails');
 //backend
-Route::post('/login','AdminController@login');
+Route::post('/login-admin','AdminController@login');
 Route::get('/dashboard','AdminController@show_dashboard');
 Route::get('/logout','AdminController@logout');	
 
@@ -62,9 +62,18 @@ Route::post('/update-cart','CartController@update');
 Route::get('/destroy-cart','CartController@remove');
 Route::get('/delete-cart/{productID}','CartController@delete');
 
+//Checkout
+Route::get('/check-out','CheckoutController@view');
 
+//login customer
+Route::get('/view-login','CheckoutController@view_login');
+Route::post('/register','CheckoutController@register');
+Route::post('/login-checkout','CheckoutController@login');
+Route::get('/forgot-password','CheckoutController@forgot_password');
+//Order
 
-//Category
+Route::post('/order','OrderController@store');
+
 
 // Route::get();
 

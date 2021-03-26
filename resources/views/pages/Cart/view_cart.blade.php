@@ -9,9 +9,13 @@
 				  <li class="active">Shopping Cart</li>
 				</ol>
 			</div>
+			<?php 
+				$cart= Session::get('cart');
+			 ?>
 			<form action="{{URL::to('/update-cart')}}" method="POST">
 				{{@csrf_field()}}
 				<div class="table-responsive cart_info">
+					<p style="background-color: orange; text-align: center; font-size: 20px;"><?php if(!empty($cart)) {echo "Thông tin chi tiết giỏ hàng!";} else{echo"Hiện tại bạn chưa có sản phẩm nào!";} ?></p>
 					<table class="table table-condensed">
 						<thead>
 							<tr class="cart_menu">
@@ -26,7 +30,6 @@
 						</thead>
 						<tbody>
 							<?php  
-							 	$cart= Session::get('cart');
 							 	$total=0;
 							?>
 							<?php if ($cart): ?>
@@ -61,8 +64,6 @@
 										$total+=($value['price']*$value['quantity']);
 									?>
 								<?php endforeach ?>
-							<?php else: ?>
-								<?php echo "<h4>Không có sản phẩm nào</h4>" ?>
 							<?php endif ?>
 						</tbody>
 					</table>
@@ -134,7 +135,7 @@
 							<li>Total <span>{{number_format($total)}} VNĐ</span></li>
 						</ul>
 							<button type="submit" class="btn btn-default update">Update</button>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+							<a class="btn btn-default check_out" href="{{URL::to('/check-out')}}">Check Out</a>
 							<a class="btn btn-default check_out" href="{{URL::to('/destroy-cart')}}">Remove Cart</a>
 					</div>
 				</div>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Brand;
 use App\Category;
 use App\Product;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {

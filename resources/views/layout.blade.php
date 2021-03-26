@@ -13,6 +13,7 @@
     <link href="{{asset('public/front_end/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('public/front_end/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/front_end/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{asset('public/front_end/css/slide.css')}}" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -57,7 +58,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{asset('public/front_end/images/home/logo.png')}}" alt="" /></a>
+                            <a href="{{URL::to('/')}}"><img src="{{asset('public/front_end/images/home/logo.png')}}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -88,9 +89,9 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="{{URL::to('/check-out')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <li><a href="{{URL::to('/view-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{URL::to('/view-login')}}"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -112,7 +113,7 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="{{URL::to('/')}}" class="active">Home</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
@@ -221,8 +222,7 @@
         
     </footer><!--/Footer-->
     
-
-  
+    @stack('slide')
     <script src="{{asset('public/front_end/js/jquery.js')}}"></script>
     <script src="{{asset('public/front_end/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/front_end/js/jquery.scrollUp.min.js')}}"></script>
